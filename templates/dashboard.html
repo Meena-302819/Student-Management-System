@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<h2>SMS</h2>
+
+<ul>
+
+<li>
+<a href="/dashboard">
+<i class="fas fa-home"></i>
+Dashboard
+</a>
+</li>
+
+<li>
+<a href="/students">
+<i class="fas fa-users"></i>
+Students
+</a>
+</li>
+
+<li>
+<a href="/addstudent">
+<i class="fas fa-user-plus"></i>
+Add Student
+</a>
+</li>
+
+<li>
+<a href="/reports">
+<i class="fas fa-chart-bar"></i>
+Reports
+</a>
+</li>
+
+<li>
+<a href="/">
+<i class="fas fa-sign-out-alt"></i>
+Logout
+</a>
+</li>
+
+</ul>
+
+</div>
+
+<!-- Main -->
+
+<div class="main">
+
+<header>
+
+<h1>
+Student Management Dashboard
+</h1>
+
+</header>
+<!-- Welcome Banner -->
+
+<div class="welcome">
+
+<h2>Welcome Admin 👋</h2>
+
+
+</div>
+
+<!-- Search Box -->
+
+<div class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="Search Student Name or Roll Number"
+onkeyup="searchStudent()">
+
+<button onclick="searchStudent()">
+<i class="fas fa-search"></i> Search
+</button>
+
+</div>
+
+<!-- Cards -->
+
+<div class="cards">
+
+<div class="card blue">
+
+<h3>Total Students</h3>
+
+<h1 id="totalStudents">0</h1>
+
+</div>
+
+<div class="card green">
+
+<h3>Boys</h3>
+
+<h1 id="boys">0</h1>
+
+</div>
+
+<div class="card pink">
+
+<h3>Girls</h3>
+
+<h1 id="girls">0</h1>
+
+</div>
+
+<div class="card orange">
+
+<h3>Hostellers</h3>
+
+<h1 id="hostellers">0</h1>
+
+</div>
+
+<div class="card purple">
+
+<h3>Day Scholars</h3>
+
+<h1 id="dayScholars">0</h1>
+
+</div>
+
+<div class="card teal">
+
+<h3>Total Fees</h3>
+
+<h1 id="totalFees">0</h1>
+
+</div>
+
+<div class="card success">
+
+<h3>Fees Collected</h3>
+
+<h1 id="feesCollected">0</h1>
+
+</div>
+
+<div class="card danger">
+
+<h3>Pending Fees</h3>
+
+<h1 id="pendingFees">0</h1>
+
+</div>
+
+</div>
+
+<!-- Recent Students -->
+
+<div class="table-box">
+
+<h2>Recent Students</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Student ID</th>
+
+<th>Name</th>
+
+<th>Roll No</th>
+
+<th>Department</th>
+
+<th>Year</th>
+
+<th>Type</th>
+
+</tr>
+
+</thead>
+
+<tbody id="recentStudents">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

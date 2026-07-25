@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Management System</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+<div class="login-box">
+
+<div class="logo">
+
+<i class="fas fa-user-graduate"></i>
+
+</div>
+
+<h1>Student Management System</h1>
+
+<p class="subtitle">
+Admin Login
+</p>
+
+<div class="input-box">
+
+<i class="fas fa-user"></i>
+
+<input
+type="text"
+id="username"
+placeholder="Username">
+
+</div>
+
+<div class="input-box">
+
+<i class="fas fa-lock"></i>
+
+<input
+type="password"
+id="password"
+placeholder="Password">
+
+</div>
+
+<button onclick="login()">
+
+<i class="fas fa-sign-in-alt"></i>
+
+Login
+
+</button>
+
+<p id="message"></p>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

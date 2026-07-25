@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reports</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='students.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<h2>SMS</h2>
+
+<ul>
+
+<li><a href="/dashboard">
+<i class="fas fa-home"></i>
+Dashboard
+</a></li>
+
+<li><a href="/students">
+<i class="fas fa-users"></i>
+Students
+</a></li>
+
+<li><a href="/addstudent">
+<i class="fas fa-user-plus"></i>
+Add Student
+</a></li>
+
+<li><a href="/reports">
+<i class="fas fa-chart-bar"></i>
+Reports
+</a></li>
+
+<li><a href="/">
+<i class="fas fa-sign-out-alt"></i>
+Logout
+</a></li>
+
+</ul>
+
+</div>
+
+<!-- Main -->
+
+<div class="main">
+
+<h1>
+
+<i class="fas fa-chart-line"></i>
+
+Student Reports
+
+</h1>
+
+<!-- Summary Cards -->
+
+<div class="cards">
+
+<div class="card blue">
+
+<h3>Total Students</h3>
+
+<h1 id="totalStudents">0</h1>
+
+</div>
+
+<div class="card green">
+
+<h3>Fees Collected</h3>
+
+<h1 id="feesCollected">0</h1>
+
+</div>
+
+<div class="card red">
+
+<h3>Pending Fees</h3>
+
+<h1 id="pendingFees">0</h1>
+
+</div>
+
+<div class="card orange">
+
+<h3>Total Fees</h3>
+
+<h1 id="totalFees">0</h1>
+
+</div>
+
+</div>
+
+<!-- Report Buttons -->
+
+<div class="report-buttons">
+
+<button onclick="exportExcel()">
+
+<i class="fas fa-file-excel"></i>
+
+Export Excel
+
+</button>
+
+<button onclick="exportPDF()">
+
+<i class="fas fa-file-pdf"></i>
+
+Export PDF
+
+</button>
+
+<button onclick="window.print()">
+
+<i class="fas fa-print"></i>
+
+Print
+
+</button>
+
+</div>
+
+<!-- Report Table -->
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Student ID</th>
+
+<th>Name</th>
+
+<th>Roll No</th>
+
+<th>Department</th>
+
+<th>Year</th>
+
+<th>Type</th>
+
+<th>Total Fee</th>
+
+<th>Paid</th>
+
+<th>Pending</th>
+
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+<tbody id="studentTable">
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script>
+async function loadDashboard() {
+
+    try {
+
+        let response = await fetch("/api/dashboard");
+        let data = await response.json();
+
+        if (document.getElementById("totalStudents"))
+            document.getElementById("totalStudents").innerHTML = data.totalStudents;
+
+        if (document.getElementById("boys"))
+            document.getElementById("boys").innerHTML = data.boys;
+
+        if (document.getElementById("girls"))
+            document.getElementById("girls").innerHTML = data.girls;
+
+        if (document.getElementById("hostellers"))
+            document.getElementById("hostellers").innerHTML = data.hostellers;
+
+        if (document.getElementById("dayScholars"))
+            document.getElementById("dayScholars").innerHTML = data.dayScholars;
+
+        if (document.getElementById("totalFees"))
+            document.getElementById("totalFees").innerHTML = "₹" + data.totalFees;
+
+        if (document.getElementById("feesCollected"))
+            document.getElementById("feesCollected").innerHTML = "₹" + data.feesCollected;
+
+        if (document.getElementById("pendingFees"))
+            document.getElementById("pendingFees").innerHTML = "₹" + data.pendingFees;
+
+    } catch (err) {
+
+        console.log(err);
+
+    }
+
+}
+window.onload = function () {
+    loadReportCards();
+    loadStudents();
+}
+</script>
+</body>
+
+</html>

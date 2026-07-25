@@ -1,0 +1,215 @@
+/* ==========================================
+   Professional Student Management System
+   Login Page CSS
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    overflow:hidden;
+}
+
+/* Animated Background */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,255,255,.08);
+    border-radius:50%;
+    top:-120px;
+    left:-120px;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    background:rgba(255,255,255,.05);
+    border-radius:50%;
+    bottom:-150px;
+    right:-120px;
+}
+
+/* Login Box */
+
+.login-container{
+    position:relative;
+    z-index:2;
+}
+
+.login-box{
+
+    width:420px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:20px;
+
+    padding:40px;
+
+    text-align:center;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+/* Logo */
+
+.logo{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#2563eb;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+}
+
+/* Title */
+
+.login-box h1{
+
+    color:white;
+
+    margin-bottom:8px;
+
+}
+
+.subtitle{
+
+    color:#dbeafe;
+
+    margin-bottom:30px;
+
+}
+
+/* Inputs */
+
+.input-box{
+
+    position:relative;
+
+    margin-bottom:20px;
+
+}
+
+.input-box i{
+
+    position:absolute;
+
+    left:15px;
+
+    top:16px;
+
+    color:#2563eb;
+
+}
+
+.input-box input{
+
+    width:100%;
+
+    padding:14px 14px 14px 45px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+/* Button */
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#1d4ed8;
+
+    transform:scale(1.03);
+
+}
+
+/* Message */
+
+#message{
+
+    margin-top:15px;
+
+    color:#fde68a;
+
+    font-weight:bold;
+
+}
+
+/* Responsive */
+
+@media(max-width:500px){
+
+.login-box{
+
+width:90%;
+
+padding:25px;
+
+}
+
+}

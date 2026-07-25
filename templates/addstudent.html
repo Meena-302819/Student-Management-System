@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Add Student</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='students.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<h2>SMS</h2>
+
+<ul>
+
+<li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+
+<li><a href="/students"><i class="fas fa-users"></i> Students</a></li>
+
+<li><a href="/addstudent"><i class="fas fa-user-plus"></i> Add Student</a></li>
+
+<li><a href="/reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+
+<li><a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+</ul>
+
+</div>
+
+<!-- Main -->
+
+<div class="main">
+
+<h1>Add Student</h1>
+
+<form id="studentForm">
+
+<div class="form-grid">
+
+<input type="text" id="name" placeholder="Student Name" required>
+
+<input type="text" id="roll_no" placeholder="Roll Number" required>
+
+<select id="department">
+
+<option value="">Department</option>
+
+<option>CSE</option>
+
+<option>ECE</option>
+
+<option>EEE</option>
+
+<option>MECH</option>
+
+<option>CIVIL</option>
+
+<option>BCA</option>
+
+<option>BSC</option>
+
+<option>BCOM</option>
+
+</select>
+
+<select id="year">
+
+<option value="">Year</option>
+
+<option>I Year</option>
+
+<option>II Year</option>
+
+<option>III Year</option>
+
+<option>IV Year</option>
+
+</select>
+
+<select id="gender">
+
+<option value="">Gender</option>
+
+<option>Male</option>
+
+<option>Female</option>
+
+</select>
+
+<input type="date" id="dob">
+
+<input type="text" id="blood_group" placeholder="Blood Group">
+
+<input type="text" id="mobile" placeholder="Mobile Number">
+
+<input type="text" id="parent_mobile" placeholder="Parent Mobile">
+
+<input type="email" id="email" placeholder="Email">
+
+<textarea id="address" placeholder="Address"></textarea>
+
+<select id="student_type" onchange="toggleStudentType()">
+
+<option value="">Student Type</option>
+
+<option>Hosteller</option>
+
+<option>Day Scholar</option>
+
+</select>
+
+</div>
+
+<!-- Hostel Details -->
+
+<div id="hostelFields">
+
+<input type="text" id="hostel_name" placeholder="Hostel Name">
+
+<input type="text" id="room_no" placeholder="Room Number">
+
+</div>
+
+<!-- Fees -->
+
+<h2>Fees Details</h2>
+
+<div class="form-grid">
+
+<input type="number" id="total_fee" placeholder="Total Fees">
+
+<input type="number" id="paid_fee" placeholder="Paid Fees" onkeyup="calculatePending()">
+
+<input type="number" id="pending_fee" placeholder="Pending Fees" readonly>
+
+<input type="date" id="payment_date">
+
+<select id="payment_mode">
+
+<option>Cash</option>
+
+<option>UPI</option>
+
+<option>Card</option>
+
+<option>Net Banking</option>
+
+</select>
+
+</div>
+
+<div class="buttons">
+
+<button type="button" onclick="saveStudent()">
+
+<i class="fas fa-save"></i>
+
+Save Student
+
+</button>
+
+<button type="reset">
+
+<i class="fas fa-eraser"></i>
+
+Clear
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
